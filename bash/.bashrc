@@ -93,6 +93,29 @@ ex () {
   fi
 }
 
+function lvf() {
+  find "${1:-.}" -maxdepth 1 -type f ! -name '.*' -exec basename {} + | sort
+}
+function lvd() {
+  printf "\033[$(echo "$LS_COLORS" | grep -o 'di=[^:]*' | sed 's/di=//')m"
+  find "${1:-.}" -maxdepth 1 -type d ! -name '.*'  -exec basename {} + | sort
+  printf "\033[0m" 
+}
+function lhf() {
+  find "${1:-.}" -maxdepth 1 -type f -name '.*' -exec basename {} + | sort
+}
+function lhd() {
+  printf "\033[$(echo "$LS_COLORS" | grep -o 'di=[^:]*' | sed 's/di=//')m"
+  find "${1:-.}" -maxdepth 1 -type d -name '.*' -not -name '.' -exec basename {} + | sort
+  printf "\033[0m" 
+}
+function branchname {
+	git branch --show-current 2> /dev/null | awk '{print "\n ("$1")"}' && tput sgr0
+}
+function lsdisp {
+	ls -d --color=always /$PWD | awk -F/ -v HOME=$HOME '{sub("/"HOME,"/~"); print $1 $NF $1 "/"}'
+}
+
 # --- Git helpers ---
 vimod () {
   vim -p $(git status -suall | awk '{print $2}')
