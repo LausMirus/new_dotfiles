@@ -1,4 +1,5 @@
 # new_dotfiles {for my presonal use}
+### Niri Config
 
 ___
 
