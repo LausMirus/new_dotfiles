@@ -1,61 +1,44 @@
+// -*- mode: jsonc -*-
 {
-"height": 40,
-	"width":1280,
-	"spacing": 4,
-
-
-	"module-left":[
-		"network"
-	],
-
-	"module-center":[
-		"sway/workspaces"
-	],
-	"module-right":[
-		"battery"
-	],
-
-	"sway/workspaces": {
-        	"disable-scroll": true,
-         	"all-outputs": true,
-         	"warp-on-scroll": false,
-         	"format": "{name}: {icon}",
-         	"format-icons": {
-             		"1": "",
-			"2": "d",
-           		"3": "",
-           		"4": "",
-             		"5": "",
-             		"urgent": "",
-             		"focused": "",
-             		"default": ""
-         }
-     },
-     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 30, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 8, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+    ],
+    "modules-center": [
+	"hyprland/workspaces"
+    ],
+    "modules-right": [
+        "network",
+        "battery"
+    ],
+ //    Modules configuration
+	"hyprland/workspaces": {
+	"format":"{icon}",
+	"format-icons": {
+		/*"": "",
+		"": "",
+		"": "",
+		"": "",
+		"": "",*/
+		"active": "",
+		"default": ""
+	},
+	"persistent-workspaces": {
+		"eDP-1": 4, // 5 workspaces by default on every monitor
+		"DP-1": 0 // but only three on HDMI-A-1
+	}
     },
-    "battery": {
-	"bat": "BAT2",
-	"interval": 60,
-	"states": {
-		"warning": 30,
-		"critical": 15
-	},
-	"events": {
-		"on-discharging-warning": "notify-send -u normal 'Low Battery'",
-		"on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
-		"on-charging-100": "notify-send -u normal 'Battery Full!'",
-		"on-discharging": "notify-send -u normal 'Power Switch' Discharging",
-		"on-charging": "notify-send -u normal 'Power Switch' Charging'"
-	},
-	"format": "{capacity}% {icon}",
-	"format-icons": ["", "", "", "", ""],
-	"max-length": 25
+    "network":{
+	    "format": "{ifname}",
+	    "format-icon": "{icon}",
+	    "format-disconnected": "   ⊘   ",
+	    "format-wifi": "{essid}",
+	    "on-click": "kitty -e nmtui",
+	    "tooltip-format-ethernet": "{ifname}",
+	    "tooltip-format-disconnected": "   ⊘   "
     }
-
 }

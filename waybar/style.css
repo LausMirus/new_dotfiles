@@ -1,12 +1,12 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 11px;
 }
-
 window#waybar {
-    background-color: rgba(99, 99, 99, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    margin-top: 0px;
+    background-color: transparent;
+    /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -36,46 +36,56 @@ window#waybar.chromium {
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
+   /* box-shadow: inset 0 -3px transparent;*/
     /* Avoid rounded borders under each button name */
     border: none;
+    padding: 0px 0px;
     border-radius: 50%;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
+/*button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #ffffff;
-}
+}*/
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
     background-color: #a37800;
 }
 
+#workspaces {
+    margin: 0px;
+    padding: 0px 0px;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 10px;
+}
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
+    padding: 0px 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /*background-color: #ffffff;*/
     color: #ffffff;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
+/*#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.1);
+}*/
 
 #workspaces button.focused, #workspaces button.active {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+   /* background-color: #000000;*/
+    color: #ff0000;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #000000;
 }
 
-#mode {
+/*#mode {
     background-color: #64727D;
     box-shadow: inset 0 -3px #ffffff;
-}
+}*/
 
 #clock,
 #battery,
@@ -94,13 +104,13 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
-    color: #ffffff;
+  /*  padding: 0 10px;
+    color: #ffffff;*/
 }
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 5px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -118,8 +128,12 @@ button:hover {
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    margin: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 10px 10px 10px;
+    font-weight: bold;
+    border-radius: 10px;
 }
 
 #battery.charging, #battery.plugged {
@@ -136,8 +150,9 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: #ff0000;
+    color: #000000;
+    font-weight: bold;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -186,7 +201,12 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    color: #ffffff;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    font-weight: bold;
+    background-color: #000000;
 }
 
 #network.disconnected {
