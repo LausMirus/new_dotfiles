@@ -1,4 +1,4 @@
-* {
+*{
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 11px;
@@ -93,10 +93,8 @@ button {
 #memory,
 #disk,
 #temperature,
-#backlight,
 #network,
 #pulseaudio,
-#wireplumber,
 #custom-media,
 #tray,
 #mode,
@@ -137,14 +135,15 @@ button {
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: #00ff00;
+    background-color: #000000;
+    font-weight: bold;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #000000;
+        color: #ff0000;
     }
 }
 
@@ -345,3 +344,19 @@ label:focus {
 #privacy-item.audio-out {
     background-color: #0069d4;
 }
+#power {
+    color: #ffffff;
+    background-color: #000000;
+    padding: 10px;
+
+}
+menu{
+    color: #ffffff;
+    background-color: #000000;
+    font-weight: bold;
+}
+menuitem{
+    color: #ffffff;
+    font-weight: bold;
+}
+

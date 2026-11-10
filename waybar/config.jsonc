@@ -7,6 +7,7 @@
     "spacing": 8, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
+	"custom/power"
     ],
     "modules-center": [
 	"hyprland/workspaces"
@@ -40,5 +41,17 @@
 	    "on-click": "kitty -e nmtui",
 	    "tooltip-format-ethernet": "{ifname}",
 	    "tooltip-format-disconnected": "   ⊘   "
+    },
+    "custom/power": {
+	"format" : "  ⏻  ",
+	"tooltip": false,
+	"menu": "on-click",
+	"menu-file": "~/.config/waybar/power_menu.xml",
+	"menu-actions": {
+		"shutdown": "shutdown",
+		"reboot": "reboot",
+		"suspend": "systemctl suspend",
+		"hibernate": "systemctl hibernate"
+	}
     }
 }
